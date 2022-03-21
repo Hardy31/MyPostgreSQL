@@ -1,20 +1,17 @@
 package Lesson3_DAO.jdbc;
 
+//https://www.youtube.com/watch?v=42feBSSKA9Q&list=PL7Bt6mWpiiza6CY8dJ9baIW6YokXkkAFy&index=3
+
 import Lesson3_DAO.model.User;
 import com.sun.istack.internal.NotNull;
-import Lesson3_DAO.model.PhoneModel;
-import Lesson3_DAO.model.User;
-
-import javax.management.relation.Role;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Author : Pavel Ravvich.
- * Created : 06/11/2017.
- */
+
+
+
 public class UserDAO implements DAO<User, String> {
     /**
      * Connection of database.
@@ -71,6 +68,7 @@ public class UserDAO implements DAO<User, String> {
                 result.setLogin(login);
                 result.setPassword(rs.getString("password"));
                 result.setRole(new User.Role(rs.getInt("rol_id"), rs.getString("role")));
+//                result.setRole(rs.getInt("rol_id"), rs.getString("role"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

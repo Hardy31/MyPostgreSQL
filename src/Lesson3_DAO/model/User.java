@@ -2,12 +2,7 @@ package Lesson3_DAO.model;
 
 import lombok.*;
 
-/**
- * Author : Pavel Ravvich.
- * Created : 06/11/2017.
- * <p>
- * User
- */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,8 +14,25 @@ public class User {
 
     private String password;
 
+    public void setRole( User.Role role) {
+    this.role = role;
+//            new Role(us.getRole().getId(), us.getRole().getName());
+//            this.id = id;
+//            this.name = name;
+    }
+
     private Role role;
 
+    public void setId( int id){
+        this.id = id;
+    }
+
+    public void setLogin( String  login){
+        this.login = login;
+    }
+    public void setPassword( String  password){
+        this.password = password;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,13 +50,51 @@ public class User {
         return result;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
     @Data
     @AllArgsConstructor
     public static class Role {
 
         private int id;
 
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
         private String name;
+
+        public Role(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+//        public void setRole(int id , String name) {
+////            new Role(us.getRole().getId(), us.getRole().getName());
+////            this.id = us.getRole().getId();
+////            this.name = us.getRole().getName();
+//            this.id = id;
+//            this.name = name;
+//        }
+
+
 
         @Override
         public boolean equals(Object o) {
