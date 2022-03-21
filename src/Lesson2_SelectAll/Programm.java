@@ -22,9 +22,11 @@ public class Programm {
             final ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()){
                 String byName = "login: " + resultSet.getString("login");
-                String byIdex = ", password: " + resultSet.getString(3) + " ;";
+                String byIdex = ", password: " + resultSet.getString(3) ;
+                String byRile = ", role: " + resultSet.getInt("role") + " ;";
                 System.out.print (byName);
-                System.out.println(byIdex);
+                System.out.print(byIdex);
+                System.out.println(byRile);
             }
         }finally {
             connection.close();
